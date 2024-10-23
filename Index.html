@@ -1,205 +1,250 @@
-import React from 'react'
-import { ShoppingCart, Search, User, Star, ChevronRight } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-
-export default function OnlineMallLandingPage() {
-  return (
-    <div className="flex flex-col min-h-screen bg-purple-50">
-      <header className="sticky top-0 z-50 w-full border-b bg-purple-800 text-yellow-300">
-        <div className="container flex h-14 items-center">
-          <div className="mr-4 hidden md:flex">
-            <a className="mr-6 flex items-center space-x-2" href="/">
-              <ShoppingCart className="h-6 w-6" />
-              <span className="hidden font-bold sm:inline-block">Pi Plaza</span>
-            </a>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <a className="transition-colors hover:text-yellow-100 text-yellow-300" href="/products">Products</a>
-              <a className="transition-colors hover:text-yellow-100 text-yellow-300" href="/categories">Categories</a>
-              <a className="transition-colors hover:text-yellow-100 text-yellow-300" href="/nft-marketplace">NFT Marketplace</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Plaza - Your One-Stop Destination for Digital and Physical Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAF5FF;
+            color: #1E1B4B;
+        }
+        header {
+            background-color: #5B21B6;
+            color: #FDE68A;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: #FDE68A;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+        nav a:hover {
+            color: #FEF3C7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .hero {
+            background-color: #4C1D95;
+            color: #FDE68A;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #FDE68A;
+            color: #4C1D95;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #FEF3C7;
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #FDE68A;
+            color: #FDE68A;
+        }
+        .btn-outline:hover {
+            background-color: #FDE68A;
+            color: #4C1D95;
+        }
+        .products {
+            background-color: #EDE9FE;
+            padding: 4rem 1rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card-content {
+            padding: 1rem;
+        }
+        .testimonials {
+            padding: 4rem 1rem;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonial-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+        footer {
+            background-color: #5B21B6;
+            color: #FDE68A;
+            padding: 2rem 1rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        footer a {
+            color: #FDE68A;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #FEF3C7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" style="font-weight: bold;">Pi Plaza</a>
+                <a href="/products">Products</a>
+                <a href="/categories">Categories</a>
+                <a href="/nft-marketplace">NFT Marketplace</a>
             </nav>
-          </div>
-          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-            <div className="w-full flex-1 md:w-auto md:flex-none">
-              <div className="relative">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-purple-400" />
-                <Input placeholder="Search products..." className="pl-8 bg-purple-700 text-yellow-100 placeholder-purple-300 border-purple-600 focus:border-yellow-300" type="search" />
-              </div>
-            </div>
-            <nav className="flex items-center">
-              <Button variant="ghost" size="icon" className="text-yellow-300 hover:text-yellow-100 hover:bg-purple-700">
-                <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">Shopping Cart</span>
-              </Button>
-              <Button variant="ghost" size="icon" className="text-yellow-300 hover:text-yellow-100 hover:bg-purple-700">
-                <User className="h-5 w-5" />
-                <span className="sr-only">Account</span>
-              </Button>
-            </nav>
-          </div>
         </div>
-      </header>
+    </header>
 
-      <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-purple-900">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-yellow-300">
-                  Welcome to Pi Plaza
-                </h1>
-                <p className="mx-auto max-w-[700px] text-purple-100 md:text-xl">
-                  Shop, barter, and trade with Pi. Your one-stop destination for digital and physical products.
-                </p>
-              </div>
-              <div className="space-x-4">
-                <Button className="bg-yellow-400 text-purple-900 hover:bg-yellow-300">Shop Now</Button>
-                <Button variant="outline" className="text-yellow-300 border-yellow-300 hover:bg-yellow-300 hover:text-purple-900">Learn More</Button>
-              </div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Welcome to Pi Plaza</h1>
+                <p>Shop, barter, and trade with Pi. Your one-stop destination for digital and physical products.</p>
+                <a href="#" class="btn">Shop Now</a>
+                <a href="#" class="btn btn-outline">Learn More</a>
             </div>
-          </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-purple-100">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-purple-800">Featured Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              <ProductCard
-                name="The Art of Digital Marketing"
-                description="Comprehensive eBook on digital marketing strategies"
-                price={50}
-                image="/placeholder.svg?height=200&width=200"
-                category="Digital Products"
-              />
-              <ProductCard
-                name="Pi Network Complete Guide"
-                description="In-depth online course about Pi Network"
-                price={100}
-                image="/placeholder.svg?height=200&width=200"
-                category="Digital Products"
-              />
-              <ProductCard
-                name="Pi Network Merchandise T-shirt"
-                description="High-quality t-shirt with Pi Network logo"
-                price={30}
-                image="/placeholder.svg?height=200&width=200"
-                category="Physical Products"
-              />
-              <ProductCard
-                name="Eco-Friendly Bamboo Phone Case"
-                description="Sustainable phone case made from bamboo"
-                price={25}
-                image="/placeholder.svg?height=200&width=200"
-                category="Physical Products"
-              />
+        <section class="products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="/placeholder.svg?height=200&width=200" alt="The Art of Digital Marketing">
+                        <div class="product-card-content">
+                            <h3>The Art of Digital Marketing</h3>
+                            <p>Comprehensive eBook on digital marketing strategies</p>
+                            <p><strong>50 Pi</strong></p>
+                            <a href="#" class="btn">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Pi Network Complete Guide">
+                        <div class="product-card-content">
+                            <h3>Pi Network Complete Guide</h3>
+                            <p>In-depth online course about Pi Network</p>
+                            <p><strong>100 Pi</strong></p>
+                            <a href="#" class="btn">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Pi Network Merchandise T-shirt">
+                        <div class="product-card-content">
+                            <h3>Pi Network Merchandise T-shirt</h3>
+                            <p>High-quality t-shirt with Pi Network logo</p>
+                            <p><strong>30 Pi</strong></p>
+                            <a href="#" class="btn">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="/placeholder.svg?height=200&width=200" alt="Eco-Friendly Bamboo Phone Case">
+                        <div class="product-card-content">
+                            <h3>Eco-Friendly Bamboo Phone Case</h3>
+                            <p>Sustainable phone case made from bamboo</p>
+                            <p><strong>25 Pi</strong></p>
+                            <a href="#" class="btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-purple-50">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-purple-800">Customer Testimonials</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <TestimonialCard
-                name="Alice Johnson"
-                testimonial="Pi Plaza has revolutionized my online shopping experience. The ability to use Pi for purchases is game-changing!"
-              />
-              <TestimonialCard
-                name="Bob Smith"
-                testimonial="I love the NFT marketplace on Pi Plaza. It's so easy to trade digital assets and physical products."
-              />
-              <TestimonialCard
-                name="Carol Davis"
-                testimonial="The customer service at Pi Plaza is exceptional. They're always ready to help with any issues."
-              />
+        <section class="testimonials">
+            <div class="container">
+                <h2>Customer Testimonials</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>"Pi Plaza has revolutionized my online shopping experience. The ability to use Pi for purchases is game-changing!"</p>
+                        <p><strong>- Alice Johnson</strong></p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"I love the NFT marketplace on Pi Plaza. It's so easy to trade digital assets and physical products."</p>
+                        <p><strong>- Bob Smith</strong></p>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"The customer service at Pi Plaza is exceptional. They're always ready to help with any issues."</p>
+                        <p><strong>- Carol Davis</strong></p>
+                    </div>
+                </div>
             </div>
-          </div>
         </section>
-      </main>
+    </main>
 
-      <footer className="w-full py-6 bg-purple-800 text-yellow-100">
-        <div className="container px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="font-bold mb-4 text-yellow-300">About</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-yellow-200">About Us</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Careers</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Press</a></li>
-              </ul>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Center</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Cookies Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-              <h3 className="font-bold mb-4 text-yellow-300">Support</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-yellow-200">Help Center</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Safety Center</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Community Guidelines</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-yellow-300">Legal</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-yellow-200">Cookies Policy</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Terms of Service</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-bold mb-4 text-yellow-300">Connect</h3>
-              <ul className="space-y-2">
-                <li><a href="#" className="hover:text-yellow-200">Facebook</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Twitter</a></li>
-                <li><a href="#" className="hover:text-yellow-200">Instagram</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 text-center text-yellow-200">
-            <p>&copy; 2024 Pi Plaza. All rights reserved.</p>
-          </div>
+            <p style="text-align: center; margin-top: 2rem;">&copy; 2024 Pi Plaza. All rights reserved.</p>
         </div>
-      </footer>
-    </div>
-  )
-}
-
-function ProductCard({ name, description, price, image, category }) {
-  return (
-    <Card className="bg-white border-purple-200 shadow-md hover:shadow-lg transition-shadow duration-300">
-      <CardHeader>
-        <img src={image} alt={name} className="w-full h-48 object-cover mb-4 rounded-t-lg" />
-        <CardTitle className="text-purple-800">{name}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm text-purple-600 mb-2">{category}</p>
-        <p className="text-sm text-gray-600">{description}</p>
-      </CardContent>
-      <CardFooter className="flex justify-between items-center">
-        <span className="text-lg font-bold text-purple-700">{price} Pi</span>
-        <Button className="bg-yellow-400 text-purple-900 hover:bg-yellow-300">Add to Cart</Button>
-      </CardFooter>
-    </Card>
-  )
-}
-
-function TestimonialCard({ name, testimonial }) {
-  return (
-    <Card className="bg-white border-purple-200 shadow-md hover:shadow-lg transition-shadow duration-300">
-      <CardHeader>
-        <CardTitle className="flex items-center">
-          <Star className="w-5 h-5 text-yellow-400 mr-2" />
-          <Star className="w-5 h-5 text-yellow-400 mr-2" />
-          <Star className="w-5 h-5 text-yellow-400 mr-2" />
-          <Star className="w-5 h-5 text-yellow-400 mr-2" />
-          <Star className="w-5 h-5 text-yellow-400" />
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-sm italic text-gray-600">"{testimonial}"</p>
-      </CardContent>
-      <CardFooter>
-        <p className="text-sm font-semibold text-purple-700">- {name}</p>
-      </CardFooter>
-    </Card>
-  )
-}
+    </footer>
+</body>
+  </html>
